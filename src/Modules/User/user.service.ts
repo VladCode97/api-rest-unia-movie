@@ -39,11 +39,11 @@ export class UserService {
    * @param email
    * @param password
    */
-  async viewUserByEmailAndPassword(
-    user: AuthDTO,
+  async viewUserByConditions(
+    conditions: any,
   ): Promise<string | any | HttpException> {
     try {
-      const responseUser = await this.userRepository.findOne({ ...user });
+      const responseUser = await this.userRepository.findOne({ ...conditions });
       return responseUser !== null ? responseUser : 'User no found';
     } catch (e) {
       return new HttpException(e, HttpStatus.FORBIDDEN);
