@@ -32,4 +32,8 @@ export const UserSchema = new Schema({
     type: 'string',
     required: true,
   },
+  Subscriptions: [{
+    type: Schema.Types.ObjectId,
+    ref: 'SUBSCRIPTIONS_MODEL'
+  }]
 });

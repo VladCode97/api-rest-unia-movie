@@ -43,7 +43,7 @@ export class UserService {
     conditions: any,
   ): Promise<string | any | HttpException> {
     try {
-      const responseUser = await this.userRepository.findOne({ ...conditions });
+      const responseUser = await (await this.userRepository.findOne({ ...conditions }));
       return responseUser !== null ? responseUser : 'User no found';
     } catch (e) {
       return new HttpException(e, HttpStatus.FORBIDDEN);
