@@ -7,6 +7,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AuthController } from './auth.controller';
 import { ConfigModule } from '@nestjs/config';
 import JwtStrategy from 'src/Common/Strategy/jwt.strategy';
+import { EmailService } from '../Email/email.service';
 
 
 @Module({
@@ -19,6 +20,6 @@ import JwtStrategy from 'src/Common/Strategy/jwt.strategy';
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, UserService, JwtStrategy],
+  providers: [AuthService, UserService, JwtStrategy, EmailService],
 })
 export class AuthModule {}

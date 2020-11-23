@@ -45,4 +45,8 @@ export default class UserDTO {
   @Length(7, 15)
   phone: string;
 
+  @ApiProperty()
+  @IsNotEmpty()
+  Subscriptions; 
+
 }

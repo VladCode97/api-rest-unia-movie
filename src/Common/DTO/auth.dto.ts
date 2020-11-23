@@ -10,9 +10,8 @@ export default class AuthDTO {
   email: string;
 
   @ApiProperty()
-  @IsNotEmpty()
   @IsString()
   @Length(5, 50)
-  password: string;
+  password?: string;
 
 }
