@@ -5,11 +5,8 @@ import { ConfigModule } from '@nestjs/config';
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    MongooseModule.forRoot(
-      process.env.URL_DATABASE,
-    ),
+    MongooseModule.forRoot(process.env.URL_DATABASE),
   ],
   providers: [],
 })
 export class DatabaseModule {}
-1;
