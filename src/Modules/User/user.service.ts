@@ -27,9 +27,7 @@ export class UserService {
    */
   async viewUserAll(): Promise<Array<UserDTO> | string | HttpException | any> {
     try {
-      const users = await this.userRepository
-        .find({})
-        .populate('SUBSCRIPTIONS_MODEL');
+      const users = await this.userRepository.find({});
       return users.length !== 0 ? users : 'No users found';
     } catch (e) {
       return new HttpException(e, HttpStatus.FORBIDDEN);
@@ -45,9 +43,9 @@ export class UserService {
     conditions: any,
   ): Promise<string | any | HttpException> {
     try {
-      const responseUser = await (
-        await this.userRepository.findOne({ ...conditions })
-      ).populate({ path: 'SUBSCRIPTIONS_MODEL' }).execPopulate();
+      const responseUser = await await this.userRepository.findOne({
+        ...conditions,
+      });
       return responseUser !== null ? responseUser : 'User no found';
     } catch (e) {
       return new HttpException(e, HttpStatus.FORBIDDEN);

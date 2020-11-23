@@ -40,7 +40,7 @@ export default class AuthService {
           Date send: ${new Date().toLocaleString()}
       `,
       );
-      return 'Email send';
+      return 'Email send';  
     }
     return 'Email send';
   }
