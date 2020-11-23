@@ -20,7 +20,7 @@ export class AuthController {
     return response.json(await this.authService.registerUser(user));
   }
 
-  @Post('/SignIn')
+  @Post('SignIn')
   @ApiResponse({
     status: 201,
     description: 'This user has been successfully created',
@@ -32,4 +32,18 @@ export class AuthController {
   ) {
     return response.json(await this.authService.signIn(user));
   }
+
+  @Post('RecoveryPassword')
+  @ApiResponse({
+    status: 201,
+    description: 'This user has been successfully created',
+  })
+  @ApiResponse({ status: 403, description: 'User was successfully uploaded' })
+  async recoveryPassword(
+    @Res() response: Response,
+    @Body() email: AuthDTO,
+  ) {
+    return response.json(await this.authService.recoveryPassword(email));
+  }
+
 }

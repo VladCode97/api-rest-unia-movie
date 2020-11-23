@@ -8,7 +8,7 @@ export const UserSchema = new Schema({
   email: {
     type: 'string',
     required: true,
-    unique: true
+    unique: true,
   },
   password: {
     type: 'string',
@@ -17,12 +17,12 @@ export const UserSchema = new Schema({
   status: {
     type: 'boolean',
     required: true,
-    default: true
+    default: true,
   },
   document: {
     type: 'string',
     required: true,
-    unique: true
+    unique: true,
   },
   age: {
     type: 'number',
@@ -32,8 +32,8 @@ export const UserSchema = new Schema({
     type: 'string',
     required: true,
   },
-  Subscriptions: [{
+  Subscriptions: {
     type: Schema.Types.ObjectId,
-    ref: 'SUBSCRIPTIONS_MODEL'
-  }]
+    ref: 'SUBSCRIPTIONS_MODEL',
+  },
 });
