@@ -3,10 +3,10 @@ import { Model } from 'mongoose';
 import IUser from '../../Common/Interfaces/user.interface';
 import UserDTO from '../../Common/DTO/user.dto';
 import { InjectModel } from '@nestjs/mongoose';
-import AuthDTO from 'src/Common/DTO/auth.dto';
 
 @Injectable()
 export class UserService {
+
   @InjectModel('USER_MODEL')
   private userRepository: Model<IUser>;
 
@@ -38,6 +38,7 @@ export class UserService {
    * @method view By user (Email, password)
    * @param email
    * @param password
+   * @param conditions 
    */
   async viewUserByConditions(
     conditions: any,

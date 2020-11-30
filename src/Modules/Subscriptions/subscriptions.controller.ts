@@ -8,6 +8,7 @@ import { JwtGuard } from '../../Common/Guards/jwt.guard';
 @Controller('Subscription')
 @UseGuards(JwtGuard)
 export class SubscriptionsController {
+  
   @Inject()
   private subscriptionsService: SubscriptionsService;
 
