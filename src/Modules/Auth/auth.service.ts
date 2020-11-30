@@ -7,6 +7,7 @@ import { EmailService } from '../Email/email.service';
 
 @Injectable()
 export default class AuthService {
+  
   @Inject()
   private userService: UserService;
 
