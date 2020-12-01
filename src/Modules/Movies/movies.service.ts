@@ -6,6 +6,7 @@ import { MovieDTO } from '../../Common/DTO/movie.dto';
 
 @Injectable()
 export class MoviesService {
+  
   @InjectModel('MOVIES_MODEL')
   private moviesRepository: Model<IMovies>;
 
@@ -22,4 +23,18 @@ export class MoviesService {
       return new HttpException(e, HttpStatus.FORBIDDEN);
     }
   }
+
+  /**
+   * Create movie
+   * @param movie 
+   */
+  async createMovie(movie: MovieDTO): Promise<string | HttpException> {
+    try {
+      await (await this.moviesRepository.create(movie)).save();
+      return "Movie create";
+    } catch (e) {
+      return new HttpException(e, HttpStatus.FORBIDDEN);
+    }
+  }
+
 }
